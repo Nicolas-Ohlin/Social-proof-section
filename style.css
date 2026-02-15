@@ -1,0 +1,253 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;700&display=swap");
+
+:root{
+  
+  --very-dark-magenta: hsl(300, 43%, 22%);
+  --soft-pink: hsl(333, 80%, 67%);
+
+  
+  --dark-grayish-magenta: hsl(303, 10%, 53%);
+  --light-grayish-magenta: hsl(300, 24%, 96%);
+  --white: hsl(0, 0%, 100%);
+
+  --radius: 10px;
+}
+
+*{ box-sizing: border-box; margin: 0; padding: 0; }
+img{ max-width: 100%; display: block; }
+
+body{
+  font-family: "League Spartan", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  min-height: 100vh;
+  background: var(--white);
+  color: var(--very-dark-magenta);
+  display: grid;
+  place-items: center;
+  padding: 72px 24px 40px;
+  position: relative;
+  overflow-x: hidden;
+}
+
+
+body::before,
+body::after{
+  content:"";
+  position: fixed;
+  inset: 0;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+body::before{
+  background-image: url("./images/bg-pattern-top-desktop.svg");
+  background-position: left top;
+  background-size: 600px auto;
+}
+
+body::after{
+  background-image: url("./images/bg-pattern-bottom-desktop.svg");
+  background-position: right bottom;
+  background-size: 900px auto;
+}
+
+.page{
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.social-proof{
+  width: min(1110px, 100%);
+  display: grid;
+  gap: 64px;
+}
+
+
+.top{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.intro{
+  max-width: 420px;
+}
+
+.title{
+  font-size: 56px;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  margin-bottom: 22px;
+  font-weight: 700;
+}
+
+.lead{
+  color: var(--dark-grayish-magenta);
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+
+.ratings{
+  display: grid;
+  gap: 16px;
+  justify-items: start;
+  padding-top: 12px;
+}
+
+.rating{
+  width: min(445px, 100%);
+  background: var(--light-grayish-magenta);
+  border-radius: var(--radius);
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  gap: 22px;
+}
+
+.stars{
+  display: flex;
+  gap: 8px;
+}
+
+.stars img{
+  width: 17px;
+  height: 16px;
+}
+
+.rating__text{
+  font-weight: 700;
+  font-size: 17px;
+}
+
+
+.rating--2{ 
+  transform: translateX(40px); 
+}
+.rating--3{ 
+  transform: translateX(80px); 
+}
+
+
+.testimonials{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.card{
+  background: var(--very-dark-magenta);
+  color: var(--white);
+  border-radius: var(--radius);
+  padding: 34px 32px;
+  box-shadow: 0 18px 40px rgba(0,0,0,.08);
+}
+
+.card__header{
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.avatar{
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.name{
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.role{
+  color: var(--soft-pink);
+  font-weight: 500;
+}
+
+.quote{
+  font-size: 17px;
+  line-height: 1.35;
+  color: rgba(255,255,255,.92);
+}
+
+.card--2{ 
+  transform: translateY(16px); 
+}
+.card--3{ 
+  transform: translateY(32px); 
+}
+
+
+.attribution{
+  margin-top: 26px;
+  font-size: 11px;
+  text-align: center;
+  color: rgba(0,0,0,.55);
+}
+.attribution a{ color: hsl(228,45%,44%); }
+
+
+@media (max-width: 900px){
+  body{
+    padding: 56px 20px 32px;
+  }
+
+  body::before{
+    background-image: url("./images/bg-pattern-top-mobile.svg");
+    background-size: 360px auto;
+  }
+  body::after{
+    background-image: url("./images/bg-pattern-bottom-mobile.svg");
+    background-size: 420px auto;
+  }
+
+  .social-proof{
+    gap: 42px;
+  }
+
+  .top{
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+  }
+
+  .intro{
+    max-width: 520px;
+  }
+
+  .title{
+    font-size: 40px;
+  }
+
+  .ratings{
+    justify-items: stretch;
+    padding-top: 0;
+  }
+
+  .rating{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+    padding: 16px 18px;
+  }
+
+  .rating--2,
+  .rating--3{
+    transform: none;
+  }
+
+  .testimonials{
+    grid-template-columns: 1fr;
+  }
+
+
+  .card--2,
+  .card--3{
+    transform: none;
+  }
+}
